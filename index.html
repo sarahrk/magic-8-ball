@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>✨ magic 8-ball ✨</title>
+    <link rel="stylesheet" href="animate.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="jquery.js"></script>
+    <script src="script.js"></script>
+</head>
+
+<body>
+    <main>
+        <div class="ball-container"> <!-- the ball itself-->
+            <div id="ball-front">
+                <div class="flex-container">
+                    <div class="ball-number-eight"></div>
+                </div>
+                <div class="flex-container">
+                    <form id="ask-question">
+                        <input type="text" placeholder="Ask me any question..." id="user-question"><input type="submit" value="Shake!" id="submit-btn">
+                        <p id="question-error" class="error-msg">Please enter a question first.</p>
+                    </form>
+                </div>
+            </div>
+
+
+            <div id="ball-back">
+                <div class="back-ui-container">
+                    <p id="question-display"></p>
+                    <div id="button-container">
+                        <button id="ask-again">Ask another question?</button>
+                    </div>
+                </div>
+                <div class="flex-container">
+                    <div class="ball-window"></div>
+                </div>
+                <div class="flex-container">
+                    <p id="response-display" class="float-animation"></p>
+                    <div class="triangle float-animation"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="about-overlay">
+            <p>Curious about your future? Need some unbiased advice? Struggling to make a decision?</p>
+            <p>✨ The answers are right here! ✨</p>
+            <p>Simply ask me any yes–no question, then shake the ball to reveal my answer.</p>
+            <small>Built with <a href="https://github.com/daneden/animate.css" target="_blank">animate.css</a></small>
+            <button id="close-overlay">Close</button>
+        </div>
+    </main>
+    <footer>
+        <a href="" id="about">About</a>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,442 @@
+body {
+    background-image: radial-gradient(circle, transparent 60%, hsl(239, 96%, 66%) 80%, hsla(238, 100%, 55%, 0.7));
+    background-color: hsl(240, 96%, 71%);
+    font-size: 3vmin;
+    padding: 0;
+    height: 100vh;
+}
+
+body, .ball-container, #ball-front {
+    position: relative;
+}
+
+body, .flex-container, .back-ui-container, .ball-number-eight, .ball-window, #ask-question, #about-overlay {
+    display: flex;
+}
+
+body, .flex-container, .ball-number-eight, .ball-window, #about-overlay {
+    align-items: center;
+    justify-content: center;
+}
+
+#ask-question {
+    justify-content: center;
+}
+
+body, #response-display, #question-display {
+    margin: 0;
+}
+
+body, input, #ask-again, footer a {
+    color: hsl(240, 25%, 98%);
+}
+
+body, input, button {
+    font-family: 'Montserrat', sans-serif;
+}
+
+input, button {
+    font-size: 5vmin;
+    box-sizing: border-box;
+}
+
+input {
+    background-color: hsla(240, 46%, 27%, 0.5);
+}
+
+#user-question {
+    border-radius: 2vmin 0 0 2vmin;
+    padding: 0 2vmin;
+    width: 70%;
+    height: 100%;
+    border: none;
+}
+
+#user-question:focus {
+    background-color: hsla(240, 96%, 71%, 0.5);
+    outline: none;
+}
+
+#submit-btn, #ask-again, #close-overlay {
+    background-color: hsla(239, 80%, 60%, 1);
+    border: solid 2px hsla(239, 80%, 60%, 1);
+    font-weight: bold;
+}
+
+#ask-again, #close-overlay {
+    border-radius: 2vmin;
+    padding: 1vmin 2vmin;
+}
+
+#ask-again {
+    font-size: 4vmin;
+    opacity: 0.9;
+}
+
+#submit-btn {
+    border-radius: 0 2vmin 2vmin 0;    
+    padding-left: 2vmin;
+    height: 100%;
+    width: 25%;
+}
+
+#submit-btn:focus, #ask-again:focus {
+    outline: none;
+    background-color: hsla(239, 75%, 50%, 1);
+    border: solid 2px hsla(239, 75%, 50%, 1);
+}
+
+#close-overlay {
+    display: block;
+}
+
+#submit-btn:hover, #ask-again:hover, #close-overlay:hover {
+    background-color: hsla(340, 40%, 35%, 1);
+    border: solid 2px hsla(340, 40%, 35%, 1);
+}
+
+input::placeholder {
+    color: hsla(240, 25%, 85%, 1);
+}
+
+.ball-container, .ball-number-eight, .ball-window, #about-overlay {
+    border-radius: 50%;
+}
+
+.ball-container, .ball-window, #about-overlay {
+    background-color: hsl(240, 17%, 5%);
+}
+
+.ball-container, #about-overlay {
+    width: 90vmin;
+    height: 90vmin;
+}
+
+.ball-container {
+    z-index: 0;
+}
+
+#ball-front, #ball-back, .flex-container, .back-ui-container {
+    height: 100%;
+    width: 100%;
+}
+
+#ball-front, #ball-back, .ball-number-eight, .ball-window {
+    z-index: 1;
+}
+
+.flex-container, .back-ui-container, #about-overlay {
+    flex-direction: column;
+}
+
+.flex-container {
+    position:absolute;
+}
+
+#ball-back {
+    display: none;
+    position:relative;
+}
+
+.back-ui-container {
+    position: absolute;
+    justify-content: space-between;
+    z-index: 3;
+}
+
+.triangle {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 20vmin 34.641vmin 20vmin;
+    border-color: transparent transparent hsla(238, 100%, 56%, 1) transparent;
+    z-index: 2;
+    display: none;
+}
+
+#response-display {
+    position: absolute;
+    text-transform: uppercase;
+    overflow-wrap: break-word;
+    width: 21.25vmin;
+    padding-top: 15vmin;
+    text-align: center;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 800;
+    z-index: 3;
+    color: hsla(177, 100%, 97%, 1);
+    text-shadow: 0px 0px 5px hsla(178, 85%, 67%, 1), 0px 0px 10px hsla(178, 85%, 67%, 1), 0px 0px 15px hsla(178, 85%, 67%, 1);
+    display: none;
+}
+
+.ball-number-eight {
+    position: absolute;
+    background-color: hsl(240, 25%, 98%);
+    height: 60%;
+    width: 60%;
+}
+
+.ball-number-eight::after {
+    content: "8";
+    color: hsl(240, 17%, 5%);
+    font-size: 40vmin;
+}
+
+.ball-window {
+    position: absolute;
+    background-image: radial-gradient(hsl(240, 17%, 5%) 40%, #152580);
+    border: 10px solid #2d2d2d;
+    height: 70%;
+    width: 70%;
+    display: none;
+    opacity: 0.9;
+    /* shadows outside window */
+    box-shadow: 10px 10px 20px 0px hsla(0, 0%, 11%, 1), -10px -10px 20px 0px hsla(0, 0%, 11%, 1), -10px 10px 20px 0px hsla(0, 0%, 11%, 1),  10px -10px 20px 0px hsla(0, 0%, 11%, 1), /* shadow (highlight) inside window */10px -10px 35px 0px hsla(230, 70%, 29%, 0.5) inset, -10px 10px 35px 0px hsla(230, 70%, 29%, 0.5) inset, -10px -10px 35px 0px hsla(230, 70%, 29%, 0.5) inset, 10px 10px 35px 0px hsla(230, 70%, 29%, 0.5) inset;
+}
+
+#ask-question {
+    z-index: 3;
+}
+
+#question-display {
+    font-size: 3.5vmin;
+    height: 25%;
+    overflow: auto;
+    font-weight: 300;
+    text-align: center;
+    overflow-wrap: break-word;
+    display: none;
+    padding-top: 1vmin;
+    text-shadow: 2px 2px 7px hsla(210, 85%, 67%, 1), -2px -2px 7px hsla(210, 85%, 67%, 1);
+}
+
+#question-display::-webkit-scrollbar {
+    width: 2vmin;
+}
+
+#question-display::-webkit-scrollbar-track {
+    background-color: hsla(240, 96%, 71%, 0.8);
+}
+
+#question-display::-webkit-scrollbar-thumb {
+  background-color: hsl(340, 62%, 33%);
+  outline: 1px solid hsl(340, 62%, 33%);
+}
+
+#button-container {
+    display: none;
+    text-align: center;
+}
+
+.error-msg {
+    display: none;
+    position: absolute;
+    background-color: hsla(340, 75%, 48%, 0.8);
+    font-weight: bold;
+    margin: 9vmin 0;
+    border-radius: 1vmin;
+    padding: 0.5vmin 1vmin;
+    width: auto;
+}
+
+/* Animation for the floating triangle */
+@keyframes float {
+    /* circular path, translateX value is the radius */
+    from { 
+        transform: rotate(0deg) translateX(2vmin) rotate(0deg); 
+    }
+    to   { 
+        transform: rotate(360deg) translateX(2vmin) rotate(-360deg); 
+    }
+}
+
+.float-animation {
+    animation-name: float;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+footer {
+    position: absolute;
+    right: 2vmin;
+    bottom: 2vmin;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    color: hsla(340, 89%, 90%, 0.8)
+}
+
+#about-overlay {
+    justify-content: space-around;
+    box-sizing: border-box;
+    padding: 15vmin 15vmin 5vmin 15vmin;
+    text-align: center;
+    display: none;
+}
+
+#about-overlay a {
+    color: hsla(239, 95%, 80%, 1)
+}
+
+#about-overlay a:hover {
+    color: hsla(340, 89%, 75%, 0.8)
+}
+
+/* apply these styles when either width < 600px or height < 600px */
+@media screen and (max-width: 600px), (max-height: 600px) {
+    body {
+        height: 100vh;
+        width: 100vw;
+        overflow: hidden;
+        font-size: 4vmin;
+    }
+
+    main {
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .ball-container, #about-overlay {
+        width: 600px;
+        height: 600px;
+        position:absolute;
+    }
+
+    .ball-number-eight::after {
+        font-size: 266px;
+    }
+
+    #ask-question {
+        width: 100%;
+        align-items: center;
+        flex-direction: column;
+        position: absolute;
+        top: 50%;
+    }
+
+    #user-question, #submit-btn {
+        border-radius: 2vmin;
+    }
+
+    #user-question {
+        display: block;
+        width: 90vw;
+        box-sizing: content-box;
+        order: 1;
+        text-align: center;
+    }
+
+    #submit-btn {
+        display: block;
+        text-align: center;
+        width: 30%;
+        margin-top: 10px;
+        order: 3;
+        margin: 0;
+    }
+
+    .error-msg {
+        order: 2;
+        position: relative;
+    }
+
+    .error-msg, #submit-btn {
+        margin: 2vmin auto 0 auto;
+    }
+
+    input, button {
+        font-size: 7vmin;
+    }
+
+    #question-display {
+        font-size: 5.5vmin;
+        width: 90vmin;
+        margin: 0 auto;
+    }
+
+    #ask-again {
+        font-size: 5vmin;
+    }
+
+    .triangle {
+        border-width: 0 125px 216.5px 125px;
+    }
+
+    #response-display {
+        width: 160px;
+        padding-top: 100px;
+        font-size: 20px;
+    }
+
+    #about-overlay p {
+        width: 90%;
+    }
+}
+
+/* apply these styles when width < 600px */
+/* (ensure text still fits in viewport) */
+@media screen and (max-width: 600px) {
+    #about-overlay p {
+        width: 90vw;
+    }
+}
+
+/* apply these styles when height < 600px */
+/* (allow user to scroll vertically, form and footer adjust to layout)*/
+@media screen and (max-height: 600px) {
+    body {
+        height: 600px;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        padding: 50px 0;
+    }
+
+    main {
+        padding: 25px 0;
+    }
+
+    #user-question {
+        width: 90%
+    }
+    
+    footer {
+        right: 6vw;
+        bottom: 3vw;
+     }
+}
+
+/* apply these styles when viewport smaller than 600x600 */
+/* (ensure elements stay within viewport) */
+@media screen and (max-height: 600px) and (max-width: 600px) {
+    #user-question {
+        width: 90vw;
+    }
+
+    #about-overlay p {
+        width: 90vw;
+    }
+}
+
+/* apply these styles when width < 490px */
+/* (font sizing for mobile devices) */
+@media screen and (max-width: 490px) {
+    body {
+        font-size: 5vw;
+    }
+
+    #user-question {
+        font-size: 7.5vw;
+    }
+
+    #about-overlay {
+        padding-top: 25vw; 
+    }
+}
